@@ -1,5 +1,7 @@
 #! /usr/bin/env python
-# Time-stamp: <2018-03-28 16:31:03 cp983411>
+# Time-stamp: <2019-02-09 13:06:33 christophe@pallier.org>
+
+""" This program reads a list of stimuli (text, images, sounds) and the associated onset times from a bunch of csv files. It then presents them at the requested times. """
 
 import sys
 import io
@@ -173,7 +175,7 @@ for listfile in csv_files:
                                               background_colour=BACKGROUND_COLOR)
                 maptext[f].preload()
             events.put((onset, 'text', f, maptext[f]))
-            events.put((onset + TEXT_DURATION, 'blank', 'blank', fs))
+            events.put((onset + TEXT_DURATION, 'blank', 'blank', bs))
         elif stype == 'rsvp':
             for i, w in enumerate(f.split()):
                 if not w in maptext:
